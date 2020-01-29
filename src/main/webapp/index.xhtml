@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://xmlns.jcp.org/jsf/html">
+
+<h:body>
+    <ui:composition template="jsf/basic.xhtml">
+    <ui:param name="title" value="Home"/>
+    <ui:define name="content">
+    <div class="topnav">
+        <a class="active" href="index.xhtml">Home</a>
+        <a href="createEntry.xhtml">Create entry</a>
+        <a href="entryList.xhtml">Your entries</a>
+        <a href="login.xhtml">Log in</a>
+    </div>
+
+    <div class="main">
+        <div style="text-align: center;">
+            <div class="header">
+                <h2>Blog</h2>
+            </div>
+            <div class="row">
+                <div class="leftcolumn">
+                    <ui:repeat value="#{listEntryController.entryList}" var="entry">
+                        <div class="card">
+                            <h2 style="float: left; margin-left: 15px;"><h:outputText value="#{entry.title}"/></h2>
+                            <h:outputText value="#{entry.date} " style="float: left; margin-left: 15px;"/>
+                            <h:outputText value=" By #{entry.owner_username}" style="float: left; margin-left: 15px;"/>
+                            <p></p>
+                            <h5><h:outputText value="#{entry.entry}"/></h5>
+                        </div>
+                    </ui:repeat>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ui:insert name="js">
+        <ui:include src="jsf/js.xhtml"></ui:include>
+    </ui:insert>
+    </ui:define>
+    </ui:composition>
+</h:body>
+</html>

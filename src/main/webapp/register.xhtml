@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register AlienBrain</title>
+
+
+
+    <ui:insert name="base">
+        <ui:include src="jsf/base.xhtml"></ui:include>
+    </ui:insert>
+    <h:outputStylesheet name="img.jpg" library="images"/>
+    <h:outputStylesheet name="bootstrap.min.css" library="vendor"/>
+    <h:outputStylesheet name="animate.css" library="vendor"/>
+    <h:outputStylesheet name="hamburgers.min.css" library="vendor"/>
+    <h:outputStylesheet name="select2.min.css" library="vendor"/>
+    <h:outputStylesheet name="main.css" library="css"/>
+    <h:outputStylesheet name="util.css" library="css"/>
+</h:head>
+<h:body>
+    <div class="container-login100" >
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt">
+                <h:graphicImage value="#{resource['images/img.jpg']}" alt="IMG"/>
+            </div>
+            <div class="main">
+                <div style="child-align: top;">
+                    <h:form class="login100-form validate-form">
+
+                        <div style="text-align: center;"><h:outputLabel value="Register" style="align-self: center; font-size: xx-large"/></div>
+
+                        <div class="wrap-input100">
+                            <h:outputLabel value="Name"/>
+                            <h:inputText validatorMessage="Name can have only big and small letters." value="#{registerRequest.name}" id="name" class="input100">
+                                <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{3,50})"/>
+                            </h:inputText>
+                            <h:messages for="name"></h:messages>
+                        </div>
+
+                        <div class="wrap-input100">
+                            <h:outputLabel value="Surname"/>
+                            <h:inputText validatorMessage="Surname can have only big and small letters." value="#{registerRequest.surname}" id="surname" class="input100">
+                                <f:validateRegex pattern="((?=.*[a-z])(?=.*[A-Z]).{3,50})"/>
+                            </h:inputText>
+                            <h:messages for="surname"></h:messages>
+                        </div>
+
+                        <div class="wrap-input100">
+                            <h:outputLabel value="Username"/>
+                            <h:inputText id="username" validatorMessage="Username can have only small letters and numbers." value="#{registerRequest.username}" label="Username" class="input100">
+                                <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+                            </h:inputText>
+                            <h:messages for="username"></h:messages>
+                        </div>
+
+                        <div class="wrap-input100">
+                            <h:outputLabel value="Password"/>
+                            <h:inputSecret validatorMessage="Haslo should have at least one small letter, one big letter, and numbers, and should be minimum of 8 characters long."
+                                           value="#{registerRequest.password}" id="password" class="input100">
+                                <f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,33})"/>
+                            </h:inputSecret>
+                            <h:messages for="password"></h:messages>
+                        </div>
+
+                        <div class="wrap-input100">
+                            <h:outputLabel value="Email"/>
+                            <h:inputText validatorMessage="Should be email." value="#{registerRequest.email}" id="email" class="input100" required="true">
+                                <f:validateLength minimum="3" maximum="50"/>
+                                <f:validateRegex pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/>
+                            </h:inputText>
+                            <h:messages for="email"></h:messages>
+                        </div>
+
+                        <div class="wrap-input100">
+                            <h:outputLabel value="Birthday"/>
+                            <h:inputText validatorMessage="dd-MM-yyyy" value="#{registerRequest.birthDate}" id="birthDate" class="input100">
+                                <f:convertDateTime type="localDate" pattern="dd-MM-yyyy"/>
+                            </h:inputText>
+                            <h:message for="birthDate"></h:message>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <h:commandButton value="Register" class="login100-form-btn" action="#{registerController.register}"/>
+                        </div>
+                        <div class="container-login100-form-btn">
+                            <a class="login100-form-btn" href="login.xhtml">Login here</a>
+                        </div>
+                    </h:form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <ui:insert name="js">
+        <ui:include src="jsf/js.xhtml"></ui:include>
+    </ui:insert>
+</h:body>
+</html>

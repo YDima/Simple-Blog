@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+    <ui:composition template="jsf/basic.xhtml">
+    <ui:param name="title" value="Log in"/>
+    <ui:define name="content">
+    <div class="container-login100" >
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt">
+                <h:graphicImage value="#{resource['images/img.jpg']}" alt="IMG"/>
+            </div>
+
+
+            <div class="main">
+                <div style="child-align: top;">
+                    <h:form class="login100-form validate-form">
+
+                        <div style="text-align: center;"><h:outputLabel value="Log in" style="align-self: center; font-size: xx-large"/></div>
+
+                        <div class="wrap-input100">
+                            <h:outputLabel value="Username"/>
+                            <h:inputText validatorMessage="Username can have only small letters and numbers." value="#{loginRequest.username}" id="username" class="input100">
+                                <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+                            </h:inputText>
+                            <h:messages for="username"/>
+                        </div>
+                        <div class="wrap-input100">
+                            <h:outputLabel value="Password"/>
+                            <h:inputSecret validatorMessage="Haslo Should have at least one small letter, one big letter, and numbers, and should be minimum of 8 characters long." value="#{loginRequest.password}" id="password" class="input100">
+                                <f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,33})"/>
+                            </h:inputSecret>
+                            <h:messages for="password"/>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <h:commandButton value="Login" class="login100-form-btn" action="#{loginController.login()}"/>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <a class="login100-form-btn" href="register.xhtml">Register here</a>
+                        </div>
+
+                    </h:form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <ui:insert name="js">
+        <ui:include src="jsf/js.xhtml"></ui:include>
+    </ui:insert>
+    </ui:define>
+    </ui:composition>
+</h:body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

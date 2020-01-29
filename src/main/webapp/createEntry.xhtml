@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+
+
+
+
+
+<h:body>
+    <ui:composition template="jsf/basic.xhtml">
+    <ui:param name="title" value="Create Entry"/>
+    <ui:define name="content">
+    <div class="topnav">
+        <a href="index.xhtml">Home</a>
+        <a class="active" href="createEntry.xhtml">Create entry</a>
+        <a href="entryList.xhtml">Your entries</a>
+        <a href="login.xhtml">Log in</a>
+    </div>
+    <div class="wrap-login100">
+
+        <div class="main">
+            <div style="child-align: top;">
+                <h:form class="login100-form validate-form">
+
+                    <div style="text-align: center;"><h:outputLabel value="Create new entry" style="align-self: center; font-size: large"/></div>
+                    <h:inputHidden value="#{entryController.entryRequest.id}" />
+                    <div class="wrap-input100">
+                        <h:outputLabel value="Title"/>
+                        <h:inputText value="#{entryRequest.title}"  class="input100"/>
+                    </div>
+
+                    <div class="wrap-input100">
+                        <h:outputLabel value="Text"/>
+                        <h:inputText value="#{entryRequest.entry}" class="input100"/>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <h:commandButton value="Create" class="login100-form-btn" action="#{entryController.save}"/>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+
+    </div>
+
+    <ui:insert name="js">
+        <ui:include src="jsf/js.xhtml"></ui:include>
+    </ui:insert>
+    </ui:define>
+    </ui:composition>
+</h:body>
+</f:view>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

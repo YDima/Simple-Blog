@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: init
+      author: Dmytro Yurchenko
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20200115_add_profile.sql
+  - changeSet:
+      id: 20200115_create_entry
+      author: Dmytro Yurchenko
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20200115_create_entry.sql

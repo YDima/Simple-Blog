@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+
+
+
+<ui:composition>
+
+    <h:outputScript name="jquery-3.2.1.min.js" library="vendor" />
+    <h:outputScript name="popper.js" library="vendor" />
+    <h:outputScript name="bootstrap.min.js" library="vendor" />
+    <h:outputScript name="select2.min.js" library="vendor" />
+    <h:outputScript name="tilt.jquery.min.js" library="vendor" />
+    <h:outputScript>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </h:outputScript>
+    <h:outputScript name="main.js" library="js" type="javascript"/>
+
+</ui:composition>
+
+</html>

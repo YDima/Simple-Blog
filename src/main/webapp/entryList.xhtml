@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+
+
+
+
+
+
+
+    <h:body>
+        <ui:composition template="jsf/basic.xhtml">
+        <ui:param name="title" value="Entry"/>
+        <ui:define name="content">
+        <div class="topnav">
+            <a href="index.xhtml">Home</a>
+            <a href="createEntry.xhtml">Create entry</a>
+            <a class="active" href="entryList.xhtml">Your entries</a>
+            <a href="login.xhtml">Log in</a>
+        </div>
+        <div class="wrap-login100">
+            <div class = "main">
+                <div class="list-group">
+                    <ui:repeat value="#{listEntryController.entryListByUser}" var="entry">
+                        <h:link styleClass="list-group-item list-group-item-action" outcome="editEntry">
+                            <f:param name="entryId" value="#{entry.id}"/>
+                            <f:param name="entryName" value="#{entry.title}"/>
+                            <f:param name="entry" value="#{entry.entry}"/>
+                            <h:outputText value="Edit #{entry.title}"/>
+                        </h:link>
+                    </ui:repeat>
+                </div>
+            </div>
+        </div>
+        </ui:define>
+        </ui:composition>
+    </h:body>
+
+</f:view>
+</html>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+
+
+
+
+
+<h:body>
+    <ui:composition template="jsf/basic.xhtml">
+    <ui:param name="title" value="Profile"/>
+    <ui:define name="content">
+    <div class="topnav">
+        <a href="index.xhtml">Home</a>
+        <a href="createEntry.xhtml">Create entry</a>
+        <a href="entryList.xhtml">Your entries</a>
+        <a href="login.xhtml">Log in</a>
+    </div>
+    <div class="wrap-login100">
+        <div class="container-login100-form-btn">
+            <a class="container-login100-form-btn" href="createEntry.xhtml">Create entry</a>
+        </div>
+        <div class="container-login100-form-btn">
+            <a class="container-login100-form-btn" href="entryList.xhtml">Your entries</a>
+        </div>
+    </div>
+
+    <ui:insert name="js">
+        <ui:include src="jsf/js.xhtml"></ui:include>
+    </ui:insert>
+    </ui:define>
+    </ui:composition>
+</h:body>
+</f:view>
+</html>
